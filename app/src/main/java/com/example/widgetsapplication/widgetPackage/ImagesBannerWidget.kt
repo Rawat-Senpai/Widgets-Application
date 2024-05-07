@@ -1,4 +1,4 @@
-package com.example.widgetsapplication
+package com.example.widgetsapplication.widgetPackage
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -9,6 +9,7 @@ import android.os.Build
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.net.toUri
+import com.example.widgetsapplication.R
 
 /**
  * Implementation of App Widget functionality.

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +16,7 @@
 
 
         <receiver
-            android:name=".ImagesBannerWidget"
+            android:name=".widgetPackage.ImagesBannerWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -37,7 +38,7 @@
         </activity>
 
         <service
-            android:name=".StackWidgetService"
+            android:name=".widgetPackage.StackWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
     </application>

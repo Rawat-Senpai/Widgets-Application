@@ -1,4 +1,4 @@
-package com.example.widgetsapplication
+package com.example.widgetsapplication.widgetPackage
 
 import android.content.Context
 import android.content.Intent
@@ -7,15 +7,14 @@ import android.graphics.BitmapFactory
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.core.os.bundleOf
+import com.example.widgetsapplication.R
 
 internal class StackRemoteViewsFactory(private val context: Context) :
     RemoteViewsService.RemoteViewsFactory {
 
     private val widgetItems = ArrayList<Bitmap>()
 
-    override fun onCreate() {
-
-    }
+    override fun onCreate() {}
 
     override fun onDataSetChanged() {
         widgetItems.apply {

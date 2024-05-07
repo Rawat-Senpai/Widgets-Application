@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/charactersFragment"
+        android:title="Characters" />
+    <item
+        android:id="@+id/akatsukiFragment"
+        android:title="Akatsuki" />
+    <item
+        android:id="@+id/clansFragment"
+        android:title="Clans" />
+    <item
+        android:id="@+id/teamsFragment"
+        android:title="Teams" />
+
+</menu>
