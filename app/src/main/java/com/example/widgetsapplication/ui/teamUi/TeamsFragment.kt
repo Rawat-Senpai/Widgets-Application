@@ -1,21 +1,21 @@
-package com.example.widgetsapplication
+package com.example.widgetsapplication.ui.teamUi
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.widgetsapplication.R
 
 
-class AkatsukiFragment : Fragment() {
-
+class TeamsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_akatsuki, container, false)
+        return inflater.inflate(R.layout.fragment_teams, container, false)
     }
 
 }

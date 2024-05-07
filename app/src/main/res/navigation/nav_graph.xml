@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.example.widgetsapplication.CharactersFragment"
+        android:name="com.example.widgetsapplication.ui.charactersUi.CharactersFragment"
         android:label="fragment_characters"
         tools:layout="@layout/fragment_characters" />
     <fragment
         android:id="@+id/akatsukiFragment"
-        android:name="com.example.widgetsapplication.AkatsukiFragment"
+        android:name="com.example.widgetsapplication.ui.akatsukiUi.AkatsukiFragment"
         android:label="fragment_akatsuki"
         tools:layout="@layout/fragment_akatsuki" />
     <fragment
         android:id="@+id/clansFragment"
-        android:name="com.example.widgetsapplication.ClansFragment"
+        android:name="com.example.widgetsapplication.ui.clanUi.ClansFragment"
         android:label="fragment_clans"
         tools:layout="@layout/fragment_clans" />
     <fragment
         android:id="@+id/teamsFragment"
-        android:name="com.example.widgetsapplication.TeamsFragment"
+        android:name="com.example.widgetsapplication.ui.teamUi.TeamsFragment"
         android:label="fragment_teams"
         tools:layout="@layout/fragment_teams" />
 </navigation>
