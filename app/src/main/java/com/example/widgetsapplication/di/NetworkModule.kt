@@ -1,5 +1,6 @@
 package com.example.widgetsapplication.di
 
+import com.example.widgetsapplication.api.AnimeApi
 import com.example.widgetsapplication.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -30,7 +31,12 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Constants.BASE_URL)
             .client(client)
+    }
 
+    @Singleton
+    @Provides
+    fun provideUserApi(retrofitBuilder: Retrofit.Builder):AnimeApi{
+        return retrofitBuilder.client(client).build().create(AnimeApi::class.java)
     }
 
 }
