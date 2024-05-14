@@ -7,7 +7,7 @@ import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
-@ExperimentalCoroutinesApi
+
 @HiltAndroidApp
 class MyApplication :Application(){
 

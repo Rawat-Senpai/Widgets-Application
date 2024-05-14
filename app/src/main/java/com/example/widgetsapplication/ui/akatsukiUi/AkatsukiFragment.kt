@@ -10,9 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.widgetsapplication.R
 import com.example.widgetsapplication.databinding.FragmentAkatsukiBinding
 import com.example.widgetsapplication.utils.NetworkResult
+import com.example.widgetsapplication.viewModel.AnimeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,7 +23,7 @@ class AkatsukiFragment : Fragment() {
     private var _binding:FragmentAkatsukiBinding ?=null
     private val binding get() = _binding!!
 
-    private val viewModel by viewModels<AkatsukiViewModel>()
+    private val viewModel by viewModels<AnimeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

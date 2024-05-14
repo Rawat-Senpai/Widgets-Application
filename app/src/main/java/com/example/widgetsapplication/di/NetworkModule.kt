@@ -1,10 +1,15 @@
 package com.example.widgetsapplication.di
 
+import android.content.Context
 import com.example.widgetsapplication.api.AnimeApi
 import com.example.widgetsapplication.utils.Constants
+import com.example.widgetsapplication.viewModel.AnimeViewModel
+import com.example.widgetsapplication.widgetPackage.StackRemoteViewsFactory
 import dagger.Module
 import dagger.Provides
+import dagger.assisted.Assisted
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -38,5 +43,18 @@ class NetworkModule {
     fun provideUserApi(retrofitBuilder: Retrofit.Builder):AnimeApi{
         return retrofitBuilder.client(client).build().create(AnimeApi::class.java)
     }
+//
+//    @Module
+//    @InstallIn(SingletonComponent::class)
+//    object AssistedInjectModule{
+//        @Provides
+//        fun provideStackRemoteViewsFactory(
+//            @ApplicationContext context:Context,
+//            animeViewModel:AnimeViewModel,
+//            @Assisted appWidgetId:Int
+//        ):StackRemoteViewsFactory{
+//            return  StackRemoteViewsFactory(context, appWidgetId,animeViewModel)
+//        }
+//    }
 
 }

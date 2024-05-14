@@ -7,7 +7,13 @@ import android.graphics.BitmapFactory
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.core.os.bundleOf
+import com.bumptech.glide.Glide
 import com.example.widgetsapplication.R
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+
 
 internal class StackRemoteViewsFactory(private val context: Context) :
     RemoteViewsService.RemoteViewsFactory {
@@ -50,4 +56,22 @@ internal class StackRemoteViewsFactory(private val context: Context) :
     override fun getItemId(position: Int): Long = 0
 
     override fun hasStableIds(): Boolean = false
+
+    private suspend fun getBitmapFromUrl(url: String): Bitmap? {
+
+        return withContext(Dispatchers.IO) {
+            try {
+                val futureTarget = Glide.with(context)
+                    .asBitmap()
+                    .load(url)
+                    .submit()
+
+                futureTarget.get()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+        }
+    }
+
 }
