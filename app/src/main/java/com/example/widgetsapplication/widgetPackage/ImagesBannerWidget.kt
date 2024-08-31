@@ -14,9 +14,6 @@ import com.example.widgetsapplication.repository.AnimeRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-/**
- * Implementation of App Widget functionality.
- */
 
 class ImagesBannerWidget  : AppWidgetProvider() {
 

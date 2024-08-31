@@ -3,33 +3,63 @@ package com.example.widgetsapplication.widgetPackage
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.core.os.bundleOf
 import com.bumptech.glide.Glide
 import com.example.widgetsapplication.R
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.widgetsapplication.repository.AnimeRepository
+import com.example.widgetsapplication.utils.NetworkResult
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 
-
-internal class StackRemoteViewsFactory(private val context: Context) :
+internal class StackRemoteViewsFactory @Inject constructor(@ApplicationContext private val context: Context , private val animeRepository: AnimeRepository) :
     RemoteViewsService.RemoteViewsFactory {
 
-    private val widgetItems = ArrayList<Bitmap>()
 
+    private val widgetItems = ArrayList<Bitmap>()
+    private val imageUrls = ArrayList<String>()
     override fun onCreate() {}
 
     override fun onDataSetChanged() {
-        widgetItems.apply {
-            add(BitmapFactory.decodeResource(context.resources, R.drawable.darth_vader))
-            add(BitmapFactory.decodeResource(context.resources, R.drawable.star_wars_logo))
-            add(BitmapFactory.decodeResource(context.resources, R.drawable.storm_trooper))
-            add(BitmapFactory.decodeResource(context.resources, R.drawable.starwars))
-            add(BitmapFactory.decodeResource(context.resources, R.drawable.falcon))
+
+        fetchImageUrlFromApi()
+
+        widgetItems.clear()
+
+        runBlocking {
+
+            animeRepository.getAkatsukiMember()
+
+            val response = animeRepository.akatsukiResponse.value
+
+            if(response is NetworkResult.Success){
+                imageUrls.clear()
+
+
+                imageUrls.addAll(animeRepository.extractImageUrls(response.data))
+
+                widgetItems.clear()
+
+                imageUrls.forEach{url->
+                    Log.d("checkingResponseImage",url.toString())
+                    val bitmap = getBitmapFromUrl(url)
+                    bitmap?.let {
+                        widgetItems.add(it)
+                    }
+                }
+            }
+
         }
+
+    }
+
+    private fun fetchImageUrlFromApi() {
     }
 
     override fun onDestroy() {

@@ -6,3 +6,5 @@ object Constants {
     const val PREF_TOKEN_FILE="PREFS_TOKEN_FILE"
 
 }
+
+//  https://narutodb.xyz/api/akatsuki

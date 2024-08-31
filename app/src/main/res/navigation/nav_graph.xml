@@ -9,7 +9,9 @@
         android:id="@+id/charactersFragment"
         android:name="com.example.widgetsapplication.ui.charactersUi.CharactersFragment"
         android:label="fragment_characters"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_characters" >
+
+    </fragment>
     <fragment
         android:id="@+id/akatsukiFragment"
         android:name="com.example.widgetsapplication.ui.akatsukiUi.AkatsukiFragment"
