@@ -29,15 +29,11 @@ class AnimeRepository @Inject constructor(private val animeApi:AnimeApi)  {
 
         Log.d("checkingDataa",response.toString())
 //        else
-
-
     }
-
-
 
     fun extractImageUrls(response: AkatsukiResponse?): List<String> {
         // Assuming AkatsukiResponse contains a list of members with image URLs
-//        return response?.members?.map { it.imageUrl } ?: emptyList()
+        // return response?.members?.map { it.imageUrl } ?: emptyList()
         val animeCharacterImages= ArrayList<String>()
 
         for (data in response?.akatsuki!!){

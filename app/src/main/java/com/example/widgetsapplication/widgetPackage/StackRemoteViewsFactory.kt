@@ -28,7 +28,7 @@ internal class StackRemoteViewsFactory @Inject constructor(@ApplicationContext p
 
     override fun onDataSetChanged() {
 
-        fetchImageUrlFromApi()
+
 
         widgetItems.clear()
 
@@ -59,8 +59,7 @@ internal class StackRemoteViewsFactory @Inject constructor(@ApplicationContext p
 
     }
 
-    private fun fetchImageUrlFromApi() {
-    }
+
 
     override fun onDestroy() {
     }

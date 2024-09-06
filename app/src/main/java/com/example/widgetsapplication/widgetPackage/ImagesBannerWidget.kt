@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
-class ImagesBannerWidget  : AppWidgetProvider() {
+class ImagesBannerWidget : AppWidgetProvider() {
 
     companion object {
         private const val TOAST_ACTION = "com.anime.widget1.TOAST_ACTION"
@@ -43,21 +43,21 @@ class ImagesBannerWidget  : AppWidgetProvider() {
 
             intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
 
-             val toastPendingIntent: PendingIntent
+            val toastPendingIntent: PendingIntent
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                 toastPendingIntent  = PendingIntent.getBroadcast(
+                toastPendingIntent = PendingIntent.getBroadcast(
                     context,
                     0,
                     toastIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
                 )
             } else {
-                 toastPendingIntent  = PendingIntent.getBroadcast(
-                     context,
-                     0,
-                     toastIntent,
-                     PendingIntent.FLAG_UPDATE_CURRENT
-                 )
+                toastPendingIntent = PendingIntent.getBroadcast(
+                    context,
+                    0,
+                    toastIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT
+                )
             }
             views.setPendingIntentTemplate(R.id.stack_view, toastPendingIntent)
 
